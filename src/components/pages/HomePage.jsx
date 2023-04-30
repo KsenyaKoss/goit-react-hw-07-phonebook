@@ -1,11 +1,13 @@
 import { deleteContact, fetchAsyncContacts } from 'components/redux/opereations';
-import { selectContacts  } from 'components/redux/selectors';
+import { selectFilteredContacts  } from 'components/redux/selectors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setFilter } from 'components/redux/contactsSlice';
+
 
 export const HomePage = () => {
   const dispatch = useDispatch();
-  const {items} = useSelector(selectContacts);
+  const filteredContacts = useSelector(selectFilteredContacts);
 
   useEffect(() => {
     dispatch(fetchAsyncContacts());
@@ -14,9 +16,13 @@ export const HomePage = () => {
   
   return (
     <>
+    <div>
+        <h3>Find contacts by Name</h3>
+        <input type="text" onChange={(ev)=>dispatch(setFilter(ev.target.value))} />
+    </div>
       <p>Contacts</p>
       <ul>
-        {items.map(({ name, phone, id }) => {
+        {filteredContacts.map(({ name, phone, id }) => {
           return (
             <li key={id}>
               <p>{name}</p>
@@ -24,7 +30,7 @@ export const HomePage = () => {
               <button onClick={()=>dispatch(deleteContact(id))}>Delete contact</button>
             </li>
           );
-        })}
+        }).reverse()}
       </ul>
     </>
   );
