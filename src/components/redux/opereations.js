@@ -11,3 +11,14 @@ return res.data
     return rejectWithValue(error.message)
 }})
   
+
+export const deleteContact = createAsyncThunk('@@delete/contact', async (id, {rejectWithValue}) => {
+    try {
+       await axios.delete(`/contacts/${id}`)
+        return(id)
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+
+}
+)
