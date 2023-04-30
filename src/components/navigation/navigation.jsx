@@ -1,17 +1,18 @@
-import { Link, Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom"
+import { StyledList, StyledNavLink, StyledNav } from "./StyledNavigation"
 
 export const Navigation = () => {
     return (
-        <nav>
-            <ul>
+        <StyledNav>
+            <StyledList>
                 <li>
-                    <Link to="/">Home</Link>
+                    <StyledNavLink to="/">Home</StyledNavLink>
                 </li>
                 <li>
-                    <Link to="add">Add Contact</Link>
+                    <StyledNavLink to="add">Add Contact</StyledNavLink>
                 </li>
-            </ul>
+            </StyledList>
             <Outlet/>
-        </nav>
+        </StyledNav> 
     )
 }

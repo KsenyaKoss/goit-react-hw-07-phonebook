@@ -3,7 +3,7 @@ import { selectContacts } from "components/redux/selectors";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { StyledInput , StyledLabel, StyledTitle, StyledButton } from "./AddContactsStyled";
 export const AddContact = () => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
@@ -33,17 +33,17 @@ export const AddContact = () => {
 
   return (
     <>
-      <p>Add Contact Form</p>
+      <StyledTitle>Add Contact Form</StyledTitle>
       <form onSubmit={handleSubmit}>
-        <label>
+        <StyledLabel>
           Name
-          <input type="text" name="name" value={name} onChange={handleInputChange}/>
-        </label>
-        <label>
+          <StyledInput type="text" name="name" value={name} onChange={handleInputChange}/>
+        </StyledLabel>
+        <StyledLabel>
           Phone
-          <input type="text" name="phone" value={phone} onChange={handleInputChange}/>
-        </label>
-        <button>Add Contact</button>
+          <StyledInput type="text" name="phone" value={phone} onChange={handleInputChange}/>
+        </StyledLabel>
+        <StyledButton disabled={!name || !phone}>Add Contact</StyledButton>
       </form>
     </>
   );
