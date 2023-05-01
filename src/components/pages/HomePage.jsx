@@ -1,5 +1,5 @@
 import { deleteContact, fetchAsyncContacts } from 'components/redux/opereations';
-import { selectFilteredContacts  } from 'components/redux/selectors';
+import { selectFilteredContacts, selectContacts } from 'components/redux/selectors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'components/redux/contactsSlice';
@@ -9,6 +9,7 @@ import { StyledDiv, StyledSearchInput, StyledTitle, StyledLi, StyledP, StyledSpa
 export const HomePage = () => {
   const dispatch = useDispatch();
   const filteredContacts = useSelector(selectFilteredContacts);
+  const {isLoading} = useSelector(selectContacts)
 
   useEffect(() => {
     dispatch(fetchAsyncContacts());
@@ -23,6 +24,7 @@ export const HomePage = () => {
     </StyledDiv>
     <StyledDiv>
     <StyledTitle >Contacts</StyledTitle>
+    {isLoading && <StyledTitle >Loading...</StyledTitle>}
       <ul>
         {filteredContacts.map(({ name, phone, id }) => {
           return (
