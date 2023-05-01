@@ -1,5 +1,5 @@
-import { addContact } from "components/redux/opereations";
-import { selectContacts } from "components/redux/selectors";
+import { addContact } from "redux/opereations";
+import { selectContacts } from "redux/selectors";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";

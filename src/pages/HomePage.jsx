@@ -1,8 +1,8 @@
-import { deleteContact, fetchAsyncContacts } from 'components/redux/opereations';
-import { selectFilteredContacts, selectContacts } from 'components/redux/selectors';
+import { deleteContact, fetchAsyncContacts } from 'redux/opereations';
+import { selectFilteredContacts, selectContacts } from 'redux/selectors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'components/redux/contactsSlice';
+import { setFilter } from 'redux/contactsSlice';
 import { StyledDiv, StyledSearchInput, StyledTitle, StyledLi, StyledP, StyledSpan  } from './StyledHomePage';
 
 

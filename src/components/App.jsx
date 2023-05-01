@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Navigation } from "./navigation/navigation";
-import { HomePage } from "./pages/HomePage";
-import { AddContact } from "./pages/AddContact";
+import { HomePage } from "../pages/HomePage";
+import { AddContact } from "../pages/AddContact";
 
 
 export const App = () => {
